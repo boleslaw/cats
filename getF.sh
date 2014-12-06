@@ -6,7 +6,7 @@
 dd=`date +%F-%H%M`
 file=fhot.$dd.xml
 outfile=flazy.$dd.html
-curl -s 'http://www.reddit.com/r/funny/hot.xml?limit=100' > cats/$file
+curl -s 'http://www.reddit.com/r/funny/hot.xml?limit=100' > $file
 echo "<html><head><title>lazy $dd</title></head><body>">$outfile
 cat $file | /usr/bin/xmlstarlet sel -t -v '/rss/channel/item/description'|grep -v map | while read line
 do
